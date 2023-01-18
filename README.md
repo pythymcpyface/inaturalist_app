@@ -1,6 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Observations Predictor
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Nuxt 3 application for visualizing wildlife observation predictions. This tool allows users to search for species and locations to view predictive trends over time.
+
+## Prerequisites
+
+**Important:** This frontend application acts as a client for a separate backend service.
+- You must have the backend prediction service running locally on `http://localhost:8080`.
+- The application expects the backend to provide prediction data for the queried species and location.
+
+## Features
+
+- **Species & Location Search:** Query specific wildlife data.
+- **Data Visualization:** Interactive charts showing observation probabilities over time.
+- **Map Integration:** (In Progress) Visualizing observations on a map.
 
 ## Setup
 
