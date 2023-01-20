@@ -16,40 +16,45 @@
       {{ autocorrected_species }}
     </div>
   </div>
-  <div ref="map">
+  <div ref="mapContainer">
   </div>
 </template>
 
 <script setup>
 import mapboxgl from "mapbox-gl";
-mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN";
-const map = new mapboxgl.Map({
-  container: this.$refs.map,
-  // You can add layers to the predetermined slots within the Standard style basemap.
-  style: "mapbox://styles/mapbox/standard",
-  center: [-74.0060152, 40.7127281],
-  zoom: 5,
-  maxZoom: 6,
-});
 
-map.on("style.load", () => {
-  map.addSource("urban-areas", {
-    type: "geojson",
-    data: "https://docs.mapbox.com/mapbox-gl-js/assets/ne_50m_urban_areas.geojson",
+const mapContainer = ref(null);
+
+onMounted(() => {
+  mapboxgl.accessToken = "pk.eyJ1IjoiYWdpYnNvbjEiLCJhIjoiY2tpNmVqOGh3MHRleTJ2bWhoY3BybWl3dyJ9.Hc2ErYd0lEKyIdo5KCjfcA";
+  const map = new mapboxgl.Map({
+    container: mapContainer.value,
+    // You can add layers to the predetermined slots within the Standard style basemap.
+    style: "mapbox://styles/mapbox/standard",
+    center: [-74.0060152, 40.7127281],
+    zoom: 5,
+    maxZoom: 6,
   });
 
-  map.addLayer({
-    id: "urban-areas-fill",
-    type: "fill",
-    // This property allows you to identify which `slot` in
-    // the Mapbox Standard your new layer should be placed in (`bottom`, `middle`, `top`).
-    slot: "middle",
-    source: "urban-areas",
-    layout: {},
-    paint: {
-      "fill-color": "#f08",
-      "fill-opacity": 0.4,
-    },
+  map.on("style.load", () => {
+    map.addSource("urban-areas", {
+      type: "geojson",
+      data: "https://docs.mapbox.com/mapbox-gl-js/assets/ne_50m_urban_areas.geojson",
+    });
+
+    map.addLayer({
+      id: "urban-areas-fill",
+      type: "fill",
+      // This property allows you to identify which `slot` in
+      // the Mapbox Standard your new layer should be placed in (`bottom`, `middle`, `top`).
+      slot: "middle",
+      source: "urban-areas",
+      layout: {},
+      paint: {
+        "fill-color": "#f08",
+        "fill-opacity": 0.4,
+      },
+    });
   });
 });
 const species = ref("");
@@ -123,7 +128,7 @@ const search = () => {
       autocorrected_place.value = data.place_json;
       autocorrected_species.value = data.species_json;
       const soughtKeys = ["observations_%", "observations_%_pred"];
-      chartOptions.series = data
+      chartOptions.series = data.data
         // .filter((key) => soughtKeys.includes(key))
         .map((el) => {
           const { correlation, df, year } = el;

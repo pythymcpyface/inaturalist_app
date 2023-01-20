@@ -7,12 +7,15 @@ export default defineEventHandler(async (event) => {
     place,
   } = query;
   const process = (data: any): Predictions => {
-    return data.data.map((el) => {
-      return {
-        ...el,
-        df: JSON.parse(el['df']),
-      }
-    })
+    return {
+      ...data,
+      data: data.data.map((el: any) => {
+        return {
+          ...el,
+          df: JSON.parse(el['df']),
+        }
+      })
+    }
   };
   return $fetch(`http://localhost:8080/predictions?place=${place}&species=${species}`)
     .then((data: any) => process(data))
