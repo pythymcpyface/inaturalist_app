@@ -10,23 +10,28 @@ A Nuxt 3 application for visualizing wildlife observation predictions. This tool
 
 ## Features
 
-- **Species & Location Search:** Query specific wildlife data.
-- **Data Visualization:** Interactive charts showing observation probabilities over time.
-- **Map Integration:** (In Progress) Visualizing observations on a map.
+- **Species & Location Search:** Query wildlife data with autocorrection support for place and species names.
+- **Data Visualization:** Interactive Highcharts visualizations showing observation probabilities over time.
+- **Map Integration:** Interactive Mapbox map displaying urban areas and observation contexts.
+
+## Troubleshooting
+
+- **Backend Connection Error:** If charts do not load or you see network errors, ensure the backend service is running on `http://localhost:8080`.
+- **Mapbox Token:** The application uses a public access token. If the map does not load, check your internet connection or update the token in `nuxt.config.ts`.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
+# yarn
+yarn install
+
 # npm
 npm install
 
 # pnpm
 pnpm install
-
-# yarn
-yarn install
 
 # bun
 bun install
@@ -37,14 +42,14 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
+# yarn
+yarn dev
+
 # npm
 npm run dev
 
 # pnpm
 pnpm run dev
-
-# yarn
-yarn dev
 
 # bun
 bun run dev
@@ -55,14 +60,14 @@ bun run dev
 Build the application for production:
 
 ```bash
+# yarn
+yarn build
+
 # npm
 npm run build
 
 # pnpm
 pnpm run build
-
-# yarn
-yarn build
 
 # bun
 bun run build
@@ -71,14 +76,14 @@ bun run build
 Locally preview production build:
 
 ```bash
+# yarn
+yarn preview
+
 # npm
 npm run preview
 
 # pnpm
 pnpm run preview
-
-# yarn
-yarn preview
 
 # bun
 bun run preview
