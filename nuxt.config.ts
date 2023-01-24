@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxt/ui', 'nuxt-highcharts', 'nuxt-mapbox'],
+  runtimeConfig: {
+    apiBase: 'http://localhost:8080',
+    public: {
+      mapboxAccessToken: 'pk.eyJ1IjoiYWdpYnNvbjEiLCJhIjoiY2tpNmVqOGh3MHRleTJ2bWhoY3BybWl3dyJ9.Hc2ErYd0lEKyIdo5KCjfcA'
+    }
+  },
   mapbox: {
     accessToken: 'pk.eyJ1IjoiYWdpYnNvbjEiLCJhIjoiY2tpNmVqOGh3MHRleTJ2bWhoY3BybWl3dyJ9.Hc2ErYd0lEKyIdo5KCjfcA'
   },

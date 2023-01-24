@@ -26,7 +26,8 @@ import mapboxgl from "mapbox-gl";
 const mapContainer = ref(null);
 
 onMounted(() => {
-  mapboxgl.accessToken = "pk.eyJ1IjoiYWdpYnNvbjEiLCJhIjoiY2tpNmVqOGh3MHRleTJ2bWhoY3BybWl3dyJ9.Hc2ErYd0lEKyIdo5KCjfcA";
+  const config = useRuntimeConfig();
+  mapboxgl.accessToken = config.public.mapboxAccessToken;
   const map = new mapboxgl.Map({
     container: mapContainer.value,
     // You can add layers to the predetermined slots within the Standard style basemap.
