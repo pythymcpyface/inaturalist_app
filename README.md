@@ -24,17 +24,7 @@ A Nuxt 3 application for visualizing wildlife observation predictions. This tool
 Make sure to install the dependencies:
 
 ```bash
-# yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -42,17 +32,7 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# yarn
 yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -60,33 +40,13 @@ bun run dev
 Build the application for production:
 
 ```bash
-# yarn
 yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# yarn
 yarn preview
-
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
